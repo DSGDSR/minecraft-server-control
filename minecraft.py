@@ -98,6 +98,11 @@ def main():
         backup()
     elif sys.argv[1] == 'status':
         status()
+    elif sys.argv[1] == 'run':
+        while True:
+            if not status():
+                start()
+            time.sleep(3 * 60)
     else:
         print('Unknown command {}. Please run {} [start/stop/backup/status].'.format(
             sys.argv[1], sys.argv[0]))
